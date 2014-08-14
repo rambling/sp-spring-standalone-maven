@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<Pattern>%d{HH:mm:ss.SSS} [%t] %-5level | %logger{36} | %msg%n</Pattern>
+		</encoder>
+	</appender>
+
+	<!-- Application Loggers -->
+	<logger name="sample" level="debug" />
+
+	<!-- 3rdparty Loggers -->
+	<logger name="org.springframework" level="debug" />
+	<logger name="org.springframework.beans" level="debug" />
+
+	<!-- Apache commons -->
+	<logger name="org.apache.commons">
+		<level value="warn" />
+		<appender-ref ref="STDOUT" />
+	</logger>
+
+	<root level="warn">
+		<appender-ref ref="STDOUT" />
+		<!--appender-ref ref="FILE" / -->
+	</root>
+</configuration>
